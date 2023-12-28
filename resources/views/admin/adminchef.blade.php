@@ -1,14 +1,11 @@
-<x-app-layout>
-    
+<x-app-layout>    
 </x-app-layout>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
    @include("admin.admincss")
   </head>
-  <body>
+  <body><br><br>
     <div class="container-scroller" >
           @include("admin.navbar")
           <form action="{{url('uploadchef')}}"  method="post"  enctype="multipart/form-data" >
@@ -29,9 +26,9 @@
                 <input type="submit"  class="btn btn-primary" value="save">
             </div>
           </form>
-          
-            <table class="table">
-                <tr>
+          <div >
+          <table class="table">
+                <tr style="color:white">
                     <th>Chef Name</th>
                     <th>Speciality</th>
                     <th>Image</th>
@@ -43,15 +40,13 @@
                     <td>{{$data->name}}</td>
                     <td>{{$data->speciality}}</td>
                     <td><img src="/chefimage/{{$data->image}}" ></td>
-                    <td><a href="{{url('/deletemenu',$data->id)}}">DELETE</a></td>
-                    <td><a href="{{url('/updateview',$data->id)}}">Update</a></td>
-
+                    <!-- <td><a href="{{url('/deletemenu',$data->id)}}">DELETE</a></td> -->
+                    <td><a href="{{url('/updatechef',$data->id)}}">UPDATE</a></td>
                 </tr>
-                @endforeach
-                
+                @endforeach                
             </table>
-          
-    </div>
+          </div>          
+         </div>
     @include("admin.adminscript")
   </body>
 </html>
